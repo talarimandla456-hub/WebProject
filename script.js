@@ -1,4 +1,5 @@
-/ --- Carousel Logic (Original) ---
+
+ // --- Carousel Logic ---
 const slides = ["Image 1", "Image 2", "Image 3"];
 let currentIndex = 0;
 
@@ -31,15 +32,15 @@ dots.forEach((dot, index) => {
 });
 
 
-// --- Form Validation Logic (New) ---
+// --- Form Validation & Preview Logic ---
 
 const submitBtn = document.getElementById("submitBtn");
-// Select all inputs that have the 'validate' class
 const inputs = document.querySelectorAll(".validate");
 const checkBoxes = document.querySelectorAll(".chk");
+const formPreview = document.querySelector(".form-preview");
 
 submitBtn.addEventListener("click", (e) => {
-  e.preventDefault(); // Stop form submission
+  e.preventDefault(); 
   
   let isValid = true;
 
@@ -48,58 +49,71 @@ submitBtn.addEventListener("click", (e) => {
     let errorMessage = "";
     const value = input.value.trim();
 
-    // Check if empty
     if (value === "") {
       errorMessage = "This field is required";
     } 
-    // Specific check for Email
     else if (input.type === "email") {
       const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailPattern.test(value)) {
         errorMessage = "Invalid email address";
       }
     } 
-    // Specific check for Mobile Number
     else if (input.type === "tel") {
-      const phonePattern = /^[0-9]{10}$/; // Assumes 10 digit number
+      const phonePattern = /^[0-9]{10}$/; 
       if (!phonePattern.test(value)) {
         errorMessage = "Invalid mobile number (10 digits)";
       }
     }
 
-    // If there is an error, show it
     if (errorMessage !== "") {
       isValid = false;
       showError(input, errorMessage);
     }
   });
 
-  // 2. Validate Checkboxes (Languages) - At least one must be checked
-  let isChecked = false;
+  // 2. Validate Checkboxes
+  let selectedLanguages = [];
   checkBoxes.forEach(box => {
-    if(box.checked) isChecked = true;
+    if(box.checked) selectedLanguages.push(box.name);
   });
 
-  if(!isChecked) {
+  if(selectedLanguages.length === 0) {
     isValid = false;
     const langContainer = document.getElementById("lang-error");
     
-    // Custom logic to show error for checkboxes since they are in a different layout
     if(!langContainer.querySelector(".error-text")) {
         const errorDiv = document.createElement("div");
         errorDiv.className = "error-text";
         errorDiv.innerText = "Please select at least one language";
         langContainer.appendChild(errorDiv);
         
-        setTimeout(() => {
-            errorDiv.remove();
-        }, 3000);
+        setTimeout(() => { errorDiv.remove(); }, 3000);
     }
   }
 
-  // 3. Success Action
+  // 3. Success Action: Show Preview and Map Data
   if (isValid) {
-    // Change button style
+    // Make the preview section visible
+    formPreview.style.display = "block";
+
+    // Map Input Values to Preview Spans
+    const previewSpans = formPreview.querySelectorAll("span");
+    
+    // Map standard inputs (first name, last name, etc.)
+    // Note: This follows the order of your HTML inputs
+    inputs.forEach((input, index) => {
+        if(previewSpans[index]) {
+            previewSpans[index].textContent = input.value;
+        }
+    });
+
+    // Specifically handle the languages span (which is previewSpans[index 8] in your HTML)
+    const langSpan = Array.from(previewSpans).find(span => 
+        span.parentElement.textContent.includes("Languages")
+    );
+    if(langSpan) langSpan.textContent = selectedLanguages.join(", ");
+
+    // Button Success State
     submitBtn.textContent = "Submitted Successfully!";
     submitBtn.classList.add("success");
     
@@ -107,31 +121,24 @@ submitBtn.addEventListener("click", (e) => {
     inputs.forEach(input => input.value = "");
     checkBoxes.forEach(box => box.checked = false);
 
-    // Optional: Revert button text after a few seconds
     setTimeout(() => {
         submitBtn.textContent = "Submit";
         submitBtn.classList.remove("success");
     }, 3000);
+
+    // Scroll to preview automatically
+    formPreview.scrollIntoView({ behavior: 'smooth' });
   }
 });
 
-// Helper function to display error messages
 function showError(inputElement, message) {
-  const parent = inputElement.parentElement; // The .input-wrapper div
-  
-  // Check if an error message is already displayed to prevent duplicates
-  if (parent.querySelector(".error-text")) {
-    return;
-  }
+  const parent = inputElement.parentElement; 
+  if (parent.querySelector(".error-text")) return;
 
   const errorDiv = document.createElement("div");
   errorDiv.className = "error-text";
   errorDiv.innerText = message;
-  
   parent.appendChild(errorDiv);
 
-  // Remove the error message after 3 seconds
-  setTimeout(() => {
-    errorDiv.remove();
-  }, 3000);
+  setTimeout(() => { errorDiv.remove(); }, 3000);
 }
