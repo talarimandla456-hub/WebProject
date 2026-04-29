@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="header">
+    <p class="p1">Logo</p>
+  </div>
+
+  <div class="hero-section">
+    <p class="p2" id="carousel-text">Image 1</p>
+
+    <div class="dots-section">
+      <div class="dot active"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+
+    <div class="left-arrow" id="prev">&lt;</div>
+    <div class="right-arrow" id="next">&gt;</div>
+  </div>
+
+  <div class="section-1">
+    <div class="image-part">
+      <p>Image</p>
+    </div>
+    <div class="content-part">
+      <h2 class="p3">Lorem Ipsum</h2>
+      <h3 class="p4">Where does it come from?</h3>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime iusto ad suscipit repudiandae eveniet repellat
+        tempore, temporibus praesentium a veniam quibusdam exercitationem recusandae aliquid minima molestias,
+        dignissimos accusamus repellendus possimus optio odio magni harum officia veritatis! Magnam vel expedita laborum
+        nam aut earum repudiandae! Officia eos incidunt similique qui provident.lorem20 Lorem ipsum dolor sit amet
+        consectetur adipisicing elit. Debitis illum ex eveniet rem quasi quod facilis possimus quaerat repellendus!
+        Quis.</p>
+    </div>
+  </div>
+
+  <div class="section-1 section-2">
+    <div class="image-part">
+      <p>Image</p>
+    </div>
+    <div class="content-part">
+      <h2 class="p3">Lorem Ipsum</h2>
+      <h3 class="p4">Where does it come from?</h3>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime iusto ad suscipit repudiandae eveniet repellat
+        tempore, temporibus praesentium a veniam quibusdam exercitationem recusandae aliquid minima molestias,
+        dignissimos accusamus repellendus possimus optio odio magni harum officia veritatis! Magnam vel expedita laborum
+        nam aut earum repudiandae! Officia eos incidunt similique qui provident.lorem20 Lorem ipsum dolor sit amet
+        consectetur adipisicing elit. Debitis illum ex eveniet rem quasi quod facilis possimus quaerat repellendus!
+        Quis.</p>
+    </div>
+  </div>
+
+  <div class="circles-container">
+    <div class="circle-container">
+
+      <div class="circle">icon</div>
+      <h2>Lorem Ipsum</h2>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum eius alias minima numquam consequuntur quia
+        reprehenderit animi? Repellat, accusamus laudantium magnam tempore modi itaque, sit tempora eius recusandae
+        facilis quibusdam.</p>
+    </div>
+    <div class="circle-container">
+      <div class="circle">icon</div>
+      <h2>Lorem Ipsum</h2>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum eius alias minima numquam consequuntur quia
+        reprehenderit animi? Repellat, accusamus laudantium magnam tempore modi itaque, sit tempora eius recusandae
+        facilis quibusdam.</p>
+    </div>
+    <div class="circle-container">
+      <div class="circle">icon</div>
+      <h2>Lorem Ipsum</h2>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum eius alias minima numquam consequuntur quia
+        reprehenderit animi? Repellat, accusamus laudantium magnam tempore modi itaque, sit tempora eius recusandae
+        facilis quibusdam.</p>
+    </div>
+  </div>
+
+  <div class="form">
+    <h2>Form</h2>
+    <div class="inner-container">
+      <div class="steps">
+        <p>Step-1: Personal info</p>
+        <p>Step-2: Address</p>
+      </div>
+
+      <h3>Step:1 Personal Info</h3>
+      <div class="fields">
+        <div class="input-wrapper">
+          <input type="text" placeholder="first name" class="validate">
+        </div>
+        <div class="input-wrapper">
+          <input type="text" placeholder="last name" class="validate">
+        </div>
+      </div>
+      <div class="fields">
+        <div class="input-wrapper">
+          <input type="email" placeholder="email" class="validate">
+        </div>
+        <div class="input-wrapper">
+          <select name="gender" id="gender" class="validate">
+            <option value="">Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+      </div>
+      <div class="fields">
+        <div class="input-wrapper">
+          <input type="date" placeholder="DOB" class="validate">
+        </div>
+        <div class="input-wrapper">
+          <input type="tel" placeholder="mobile" class="validate">
+        </div>
+      </div>
+
+      <h3>Qualification</h3>
+      <div class="fields">
+        <div class="input-wrapper">
+          <input type="text" placeholder="Education fields" class="validate">
+        </div>
+        <div class="input-wrapper">
+          <select name="skills" id="skills" class="validate">
+            <option value="">Skills</option>
+            <option value="html/css"> HTML CSS</option>
+            <option value="react">React</option>
+          </select>
+        </div>
+      </div>
+      
+      <h4>Languages</h4>
+      <div class="languages">
+        <div class="box"><input type="checkbox" name="Telugu" class="chk"> Telugu</div>
+        <div class="box"><input type="checkbox" name="Hindi" class="chk"> Hindi</div>
+        <div class="box"><input type="checkbox" name="English" class="chk"> English</div>
+        <div class="box"><input type="checkbox" name="Others" class="chk"> Others</div>
+      </div>
+      <div id="lang-error"></div>
+
+      <h3>Step:2 Address</h3>
+      <div class="fields">
+        <div class="input-wrapper">
+          <input type="text" placeholder="Address1" class="validate">
+        </div>
+        <div class="input-wrapper">
+          <input type="text" placeholder="Address2" class="validate">
+        </div>
+      </div>
+      <div class="fields">
+        <div class="input-wrapper">
+          <input type="text" placeholder="Address3" class="validate">
+        </div>
+        <div class="input-wrapper">
+          <select name="city" id="city" class="validate">
+            <option value="">City</option>
+            <option value="Tirupati">Tirupati</option>
+            <option value="Hyderabad">Hyderabad</option>
+          </select>
+        </div>
+      </div>
+      <div class="fields">
+        <div class="input-wrapper">
+          <select name="state" id="state" class="validate">
+            <option value="">State</option>
+            <option value="Andhra Pradesh">Andhra Pradesh</option>
+            <option value="Telangana">Telangana</option>
+          </select>
+        </div>
+        <div class="input-wrapper">
+          <input type="number" placeholder="Pincode" class="validate">
+        </div>
+      </div>
+
+      <button type="submit" id="submitBtn">Submit</button>
+    </div>
+
+  </div>
+
+
+  <div class="form-preview">
+    <h2>Form Preview</h2>
+
+    <div class="inner-container">
+      <h3>Step1: Personal Info</h3>
+      <div class="field-output">
+        <p class="bold">First Name: <span>Shiva</span></p>
+        <p class="bold">Last Name: <span>Rishi</span></p>
+      </div>
+      <div class="field-output">
+        <p class="bold">Email: <span>shivarishi@gamil.com</span></p>
+        <p class="bold">Gender: <span>Male</span></p>
+      </div>
+      <div class="field-output">
+        <p class="bold">Date of Birth: <span>10-7-2002</span></p>
+        <p class="bold">Mobile: <span>9999999999</span></p>
+      </div>
+
+      <h3>Qualification</h3>
+      <div class="field-output">
+        <p class="bold">Education: <span>B.Tech</span> </p>
+        <p class="bold">Skills: <span>HTML, CSS, JS</span></p>
+      </div>
+      <div class="field-output">
+        <p class="bold">Languages: <span>Telugu, English, Hindi</span></p>
+      </div>
+      <h3>Step2: Address</h3>
+      <div class="field-output">
+        <p class="bold">Address1: <span>Street 1</span></p>
+        <p class="bold">Address2: <span>Area 51</span></p>
+      </div>
+      <div class="field-output">
+        <p class="bold">Address3: <span>City 123</span></p>
+        <p class="bold">City: <span>Tirupati</span></p>
+      </div>
+      <div class="field-output">
+        <p class="bold">State: <span>Andhra Pradesh</span></p>
+        <p class="bold">Pincode: <span>517501</span></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
